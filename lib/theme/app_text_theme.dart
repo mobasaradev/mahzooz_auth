@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_template/theme/app_colors.dart';
 
 class AppTextTheme {
   AppTextTheme._();
-  static final _textStyle = GoogleFonts.poppins();
+  static final _textStyle = GoogleFonts.lato();
   static TextTheme common = TextTheme(
-    headlineLarge: _textStyle.copyWith(
-      fontWeight: FontWeight.bold,
-      fontSize: 30,
+    bodySmall: _textStyle.copyWith(
+      fontWeight: FontWeight.normal,
+      fontSize: 14,
+      color: AppColors.tiredTextColor,
     ),
-    headlineMedium: _textStyle.copyWith(
-      fontWeight: FontWeight.bold,
-      fontSize: 28,
+    bodyMedium: _textStyle.copyWith(
+      fontWeight: FontWeight.normal,
+      fontSize: 16,
+      color: AppColors.tiredTextColor,
+    ),
+    labelSmall: _textStyle.copyWith(
+      fontWeight: FontWeight.normal,
+      fontSize: 8,
+      color: AppColors.tiredTextColor,
     ),
   );
 }

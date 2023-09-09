@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_template/modules/home/view/home_page.dart';
+import 'package:project_template/modules/sign_up/view/sign_up_screen.dart';
 import 'package:project_template/router/router_name.dart';
 
 
