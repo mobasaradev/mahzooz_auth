@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../theme/app_colors.dart';
-import '../../../theme/app_text_theme.dart';
-import '../../widgets/custom_text.dart';
+import '../../theme/app_colors.dart';
+import '../../theme/app_text_theme.dart';
+import 'custom_text.dart';
 
 class SignUpCustomButton extends StatelessWidget {
   const SignUpCustomButton({super.key, required this.onPressed});
