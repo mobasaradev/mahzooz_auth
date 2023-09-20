@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../theme/app_colors.dart';
 
-class PassTextField extends StatelessWidget {
+class PassTextField extends StatefulWidget {
   const PassTextField({
     super.key,
     this.controller,
@@ -13,10 +13,15 @@ class PassTextField extends StatelessWidget {
   });
   final TextEditingController? controller;
   final String? hintText;
-
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
 
+  @override
+  State<PassTextField> createState() => _PassTextFieldState();
+}
+
+class _PassTextFieldState extends State<PassTextField> {
+  bool _isPasswordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,11 +34,22 @@ class PassTextField extends StatelessWidget {
         ),
       ),
       child: TextFormField(
-        controller: controller,
+        controller: widget.controller,
         keyboardType: TextInputType.text,
+        obscureText: !_isPasswordVisible,
         decoration: InputDecoration(
-          hintText: hintText,
+          hintText: widget.hintText,
           contentPadding: EdgeInsets.only(top: 3, left: 10.h),
+          suffixIcon: IconButton(
+            icon: Icon(
+              _isPasswordVisible ? Icons.visibility_off : Icons.visibility,
+            ),
+            onPressed: () {
+              setState(() {
+                _isPasswordVisible = !_isPasswordVisible;
+              });
+            },
+          ),
           border: const OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
@@ -41,18 +57,8 @@ class PassTextField extends StatelessWidget {
             ),
           ),
         ),
-        obscureText: true,
-        validator: validator,
-        // (value) {
-        //   if (value == null || value.isEmpty) {
-        //     return 'Please enter a password';
-        //   }
-        //   return null;
-        // },
-        onSaved: onSaved,
-        // (value) {
-        //   _password = value;
-        // },
+        validator: widget.validator,
+        onSaved: widget.onSaved,
       ),
     );
   }

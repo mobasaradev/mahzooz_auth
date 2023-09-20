@@ -19,8 +19,8 @@ class _PasswordScreenState extends State<PasswordScreen> {
   final passController = TextEditingController();
   final cPassController = TextEditingController();
   final emailController = TextEditingController();
-  String? _password;
-  String? _confirmPassword;
+  String? password;
+  String? confirmPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   return null;
                 },
                 onSaved: (value) {
-                  _password = value;
+                  password = value;
                 },
               ),
               const SizedBox(height: 20),
@@ -81,7 +81,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   return null;
                 },
                 onSaved: (value) {
-                  _confirmPassword = value;
+                  confirmPassword = value;
                 },
               ),
               const SizedBox(height: 20.0),

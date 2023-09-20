@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: RouteName.phone,
           onGenerateRoute: AppRoutes.onGenerateRoute,
-          // home: const PhoneNumberStep(),
         );
       },
     );
