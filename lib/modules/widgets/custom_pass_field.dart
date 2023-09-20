@@ -3,17 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../theme/app_colors.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+class PassTextField extends StatelessWidget {
+  const PassTextField({
     super.key,
     this.controller,
     this.hintText,
-    this.onTap, this.keyboardType,
+    this.validator,
+    this.onSaved,
   });
   final TextEditingController? controller;
   final String? hintText;
-  final GestureTapCallback? onTap;
-  final TextInputType? keyboardType;
+
+  final String? Function(String?)? validator;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,8 @@ class CustomTextField extends StatelessWidget {
         ),
       ),
       child: TextFormField(
-        onTap: onTap,
         controller: controller,
-        keyboardType: keyboardType,
+        keyboardType: TextInputType.text,
         decoration: InputDecoration(
           hintText: hintText,
           contentPadding: EdgeInsets.only(top: 3, left: 10.h),
@@ -40,13 +41,18 @@ class CustomTextField extends StatelessWidget {
             ),
           ),
         ),
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter a valid value.';
-          }
-
-          return null;
-        },
+        obscureText: true,
+        validator: validator,
+        // (value) {
+        //   if (value == null || value.isEmpty) {
+        //     return 'Please enter a password';
+        //   }
+        //   return null;
+        // },
+        onSaved: onSaved,
+        // (value) {
+        //   _password = value;
+        // },
       ),
     );
   }

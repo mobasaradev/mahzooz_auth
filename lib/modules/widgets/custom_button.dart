@@ -5,8 +5,8 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_text_theme.dart';
 import 'custom_text.dart';
 
-class SignUpCustomButton extends StatelessWidget {
-  const SignUpCustomButton({super.key, required this.onPressed});
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key, required this.onPressed});
   final VoidCallback? onPressed;
 
   @override
@@ -19,8 +19,8 @@ class SignUpCustomButton extends StatelessWidget {
           child: ElevatedButton(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primary,
               foregroundColor: AppColors.black,
-              backgroundColor: AppColors.grey.withOpacity(0.3),
               elevation: 0,
               fixedSize: Size(150.w, 45.h),
               shape: RoundedRectangleBorder(
